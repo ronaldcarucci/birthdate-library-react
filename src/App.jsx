@@ -46,14 +46,14 @@ function App() {
     return (<></>);
   };
 
-  const dateTemplate = (date) => {
+  const dateTemplate = (dateTemp) => {
     const days = Object.keys(datesForTabs).map(d => parseInt(d.split(' ')[0]));
-    if (days.includes(date.day)) {
+    if (days.includes(dateTemp.day) && dateTemp.month === date.getMonth()) {
         return (
-            <strong className='text-orange-700'>{date.day}</strong>
+            <strong className='text-orange-700'>{dateTemp.day}</strong>
         );
     }
-    return date.day;
+    return dateTemp.day;
   }
 
   const panelHeaderTemplate = (options) => {
