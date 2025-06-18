@@ -9,7 +9,6 @@ import { Tag } from 'primereact/tag';
 
 function App() {
   const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-  const days = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15,','16,','17,','18,','19,','20,','21,','22,','23,','24,','25','26','27','28','29','30','31'];
   const [date, setDate] = useState(new Date());
   const [birthdates, setBirthdates] = useState(null);
   let datesForTabs = {}
@@ -30,8 +29,9 @@ function App() {
         {}
       );
       return Object.keys(datesForTabs).sort().map((d) => {
+        const heads = d.split(' ');
         return (
-          <AccordionTab key={d} header={<>{d} <Tag severity="info" value={datesForTabs[d].length} rounded className='absolute inset-y-3 right-3 w-5 h-5'></Tag></>}>
+          <AccordionTab key={d} header={<>{'' + parseInt(heads[0]).toString().padStart(2,'') + ' ' + heads[1]} <Tag severity="info" value={datesForTabs[d].length} rounded className='absolute inset-y-3 right-3 w-5 h-5'></Tag></>}>
             <ul>
               {
                 datesForTabs[d].map((p, i) => {
