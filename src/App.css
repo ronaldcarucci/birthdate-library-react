@@ -1,0 +1,6 @@
+.without-header .p-datepicker-header {
+    display: none;
+}
+.p-datepicker table td > span.p-highlight {
+    background-color: unset;
+}
